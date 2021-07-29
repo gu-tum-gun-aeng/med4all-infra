@@ -1,24 +1,24 @@
 config:
   med4all-aws-infrastructure:config:
     eks:
-      roleName: eks-role
-      profileName: eks-profile
-      clusterId: eks-cluster
-      nodeGroupId: eks-node-group
+      roleName: med4all-eks-role
+      profileName: med4all-eks-profile
+      clusterId: med4all-eks-cluster
+      nodeGroupId: med4all-eks-node-group
       instanceType: t2.medium
       desireCapacity: 3
       minSize: 3
       maxSize: 5
-      cloudWathcRoleName: FluentDCloudWatchForEks
+      cloudWathcRoleName: med4all-FluentDCloudWatchForEks
     localEks:
-      roleName: local-eks-role
-      profileName: local-eks-profile
-      clusterId: local-eks-cluster
-      nodeGroupId: local-eks-node-group
+      roleName: med4all-local-eks-role
+      profileName: med4all-local-eks-profile
+      clusterId: med4all-local-eks-cluster
+      nodeGroupId: med4all-local-eks-node-group
       instanceType: t2.medium
       desireCapacity: 3
       minSize: 3
       maxSize: 5
-      cloudWathcRoleName: local-FluentDCloudWatchForEks
+      cloudWathcRoleName: med4all-local-FluentDCloudWatchForEks
     stackReference: med4all/med4all-aws-infrastructure/network
   aws:region: ap-southeast-1
