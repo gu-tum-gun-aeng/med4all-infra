@@ -1,8 +1,8 @@
 config:
   med4all-aws-infrastructure:config:
     customDomainName:
-      - api.med4all.avantis.finance
-    route53ZoneName: avantis.finance
+      - api.gu-aeng.ninja
+    route53ZoneName: gu-aeng.ninja
     certification:
       name: sslCertificate
       validationMethod: DNS
