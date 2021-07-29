@@ -1,7 +1,7 @@
 config:
   med4all-aws-infrastructure:config:
-    securityGroupName: msk-cluster-security-group
-    clusterName: msk-cluster
+    securityGroupName: med4all-msk-cluster-security-group
+    clusterName: med4all-msk-cluster
     brokerInstanceType: kafka.t3.small
     brokerNumberNode: 3
     kafkaVersion: '2.8.0'

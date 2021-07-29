@@ -15,34 +15,6 @@ config:
         - availability: ap-southeast-1a
           cidrBlock: '10.2.4.0/24'
       elasticIpName: 'med4allElasticIp-pr-$PR_NUMBER'
-    rds:
-      dbName: med4all
-      username: $DEV_AURORA_USERNAME
-      password: $DEV_AURORA_PASSWORD
-      nCluster: 1
-      clusterId: aurora-cluster-integration-pr-$PR_NUMBER
-      clusterInstanceId: aurora-instance-integration-$PR_NUMBER
-      skipFinalSnapshot: true
-      subnetGroupName: rds-private-subnet-integration-$PR_NUMBER
-      instanceType: db.t3.medium
-    eks:
-      roleName: eks-role-integration
-      profileName: eks-profile-integration
-      clusterId: eks-cluster-integration-$PR_NUMBER
-      nodeGroupId: eks-node-group-integration-$PR_NUMBER
-      instanceType: t2.medium
-      desireCapacity: 1
-      minSize: 1
-      maxSize: 1
-    localEks:
-      roleName: local-eks-role-integration
-      profileName: local-eks-profile-integration
-      clusterId: local-eks-cluster-integration-$PR_NUMBER
-      nodeGroupId: local-eks-node-group-integration-$PR_NUMBER
-      instanceType: t2.medium
-      desireCapacity: 1
-      minSize: 1
-      maxSize: 1
     securityGroup:
       name: global-security-group-pr-$PR_NUMBER
   aws:region: ap-southeast-1

@@ -3,7 +3,7 @@ config:
     elasticsearch:
       instanceType: t3.small.elasticsearch
       name: elasticsearch
-      route53RecordPulumiName: elasticsearchRoute53
+      route53RecordPulumiName: med4all-elasticsearchRoute53
       route53RecordType: CNAME
       route53RecordName: kibana
       route53Ttl: 300

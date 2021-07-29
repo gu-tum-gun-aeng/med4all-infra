@@ -101,7 +101,7 @@ const createRoute = (
       Name: `${boundary}-route-table`,
     },
   })
-  const internetGateway = new aws.ec2.InternetGateway('internet-gatweway', {
+  const internetGateway = new aws.ec2.InternetGateway('internet-gateway', {
     vpcId: vpc.id,
     tags: {
       Name: 'internet-gateway',

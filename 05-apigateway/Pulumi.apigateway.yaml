@@ -3,10 +3,10 @@ config:
     networkStackReference: med4all/med4all-aws-infrastructure/network
     eksStackReference: med4all/med4all-aws-infrastructure/eks
     customDomainName:
-      - api.med4all.avantis.finance
+      - api.gu-aeng.ninja
     certificate:
       type: AMAZON_ISSUED
-    route53ZoneName: avantis.finance
+    route53ZoneName: gu-aeng.ninja
     awsSdkResourceGroupsTaggingApi:
       apiVersion: '2017-01-26'
       resourceTypeFilters: elasticloadbalancing:loadbalancer

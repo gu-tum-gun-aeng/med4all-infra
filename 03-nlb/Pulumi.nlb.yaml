@@ -1,6 +1,6 @@
 config:
   med4all-aws-infrastructure:config:
-    name: nlb
+    name: med4all-nlb
     kubeConfigName: kubeconfig
     eksStackReference: med4all/med4all-aws-infrastructure/eks
     ingressDeploymentFilename: ingress-deploy.yaml
