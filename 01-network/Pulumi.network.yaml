@@ -1,0 +1,38 @@
+config:
+  med4all-aws-infrastructure:config:
+    network:
+      vpc:
+        cidrBlock: 10.0.0.0/16
+        name: vpc
+      privateSubnetConfig:
+        - availability: ap-southeast-1a
+          cidrBlock: '10.0.1.0/24'
+        - availability: ap-southeast-1b
+          cidrBlock: '10.0.2.0/24'
+        - availability: ap-southeast-1c
+          cidrBlock: '10.0.3.0/24'
+      publicSubnetConfig:
+        - availability: ap-southeast-1a
+          cidrBlock: '10.0.4.0/24'
+      elasticIpName: 'med4allElasticIp'
+    eks:
+      roleName: eks-role
+      profileName: eks-profile
+      clusterId: eks-cluster
+      nodeGroupId: eks-node-group
+      instanceType: t2.medium
+      desireCapacity: 3
+      minSize: 3
+      maxSize: 5
+    localEks:
+      roleName: local-eks-role
+      profileName: local-eks-profile
+      clusterId: local-eks-cluster
+      nodeGroupId: local-eks-node-group
+      instanceType: t2.medium
+      desireCapacity: 3
+      minSize: 3
+      maxSize: 5
+    securityGroup:
+      name: global-security-group
+  aws:region: ap-southeast-1

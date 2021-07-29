@@ -1,0 +1,4 @@
+config:
+  med4all-aws-infrastructure:config:
+    eksStackReference: med4all/med4all-aws-infrastructure/eks
+  aws:region: ap-southeast-1

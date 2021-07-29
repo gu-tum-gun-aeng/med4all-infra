@@ -1,0 +1,5 @@
+node_modules
+dist
+jest.config.js
+jest.integration.config.js
+integration/automation.ts

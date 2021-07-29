@@ -1,0 +1,17 @@
+config:
+  med4all-aws-infrastructure:config:
+    stackReference: med4all/med4all-aws-infrastructure/network
+    eksStackReference: med4all/med4all-aws-infrastructure/eks
+    esStackReference: med4all/med4all-aws-infrastructure/elasticsearch
+    dashboardDomainNames:
+      - argocd
+      - grafana
+    route53EsRecordName: kibana
+    route53ZoneName: avantis.finance
+    route53RecordTtl: 300
+    route53RecordType: CNAME
+    awsSdkResourceGroupsTaggingApi: 
+      apiVersion: "2017-01-26"
+      resourceTypeFilters: elasticloadbalancing:loadbalancer
+    privateHostZoneName: med4all.local
+  aws:region: ap-southeast-1

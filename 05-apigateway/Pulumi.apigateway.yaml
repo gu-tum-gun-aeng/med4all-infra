@@ -1,0 +1,40 @@
+config:
+  med4all-aws-infrastructure:config:
+    networkStackReference: med4all/med4all-aws-infrastructure/network
+    eksStackReference: med4all/med4all-aws-infrastructure/eks
+    customDomainName:
+      - api.med4all.avantis.finance
+    certificate:
+      type: AMAZON_ISSUED
+    route53ZoneName: avantis.finance
+    awsSdkResourceGroupsTaggingApi:
+      apiVersion: '2017-01-26'
+      resourceTypeFilters: elasticloadbalancing:loadbalancer
+    vpcLink:
+      name: med4allVpcLink
+      description: VpcLink for API gateway
+    apiGateway:
+      name: httpApiGateway
+      description: API Gateway for med4all core
+      endpointConfigurationType: REGIONAL
+    stage:
+      name: httpApiStage
+      stageName: api
+    integration:
+      name: httpApi-integration
+      type: HTTP_PROXY
+      integrationHttpMethod: ANY
+      connectionType: VPC_LINK
+    route:
+      name: httpApi-route
+    apiGatewayDomainName:
+      name: httpApiDomainName
+      endpointConfigurationType: REGIONAL
+      securityPolicy: TLS_1_2
+    route53Record:
+      name: httpApi-proxyRecord
+      type: CNAME
+      ttl: 300
+    basePathMapping:
+      name: httpApi-wildcardPathmap
+  aws:region: ap-southeast-1

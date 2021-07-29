@@ -1,0 +1,13 @@
+coverage:
+  precision: 2
+  round: down
+  range: '85...100'
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 15%
+
+ignore:
+  - 'integration'
+  - '*test*.ts'
