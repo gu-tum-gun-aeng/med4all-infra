@@ -158,7 +158,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: up
-          stack-name: avamed4allntis/privateHostZone
+          stack-name: med4all/privateHostZone
           work-dir: 11-privateHostZone
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
