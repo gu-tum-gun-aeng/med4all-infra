@@ -1,0 +1,263 @@
+name: pr-checker
+on:
+  - pull_request
+jobs:
+  lint-and-compiler-check:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run TSC compiler to check typescript
+        run: npm run check-typescript
+
+      - name: Run lint
+        run: npm run lint
+
+  unit-test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - run: npm install
+
+      - name: run unit tests
+        run: npm run test
+
+  integration:
+    needs: [lint-and-compiler-check, unit-test, preview]
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - run: npm install
+
+      - name: Install Pulumi CLI
+        uses: pulumi/setup-pulumi@v2
+
+      - name: List pulumi plugin
+        run: pulumi plugin ls
+
+      - name: Install pulumi plugin AWS
+        run: pulumi plugin install resource aws v4.8.0
+
+      - name: List pulumi plugin
+        run: pulumi plugin ls
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: ap-southeast-1
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - uses: datamonsters/replace-action@v2
+        with:
+          files: '01-network/Pulumi.integration.yaml'
+          replacements: '$PR_NUMBER=${{ github.event.pull_request.number }},$PR_NUMBER=${{ github.event.pull_request.number }},$PR_NUMBER=${{ github.event.pull_request.number }},$PR_NUMBER=${{ github.event.pull_request.number }},$PR_NUMBER=${{ github.event.pull_request.number }},$PR_NUMBER=${{ github.event.pull_request.number }},$PR_NUMBER=${{ github.event.pull_request.number }},$PR_NUMBER=${{ github.event.pull_request.number }},$PR_NUMBER=${{ github.event.pull_request.number }},$PR_NUMBER=${{ github.event.pull_request.number }},$PR_NUMBER=${{ github.event.pull_request.number }},$PR_NUMBER=${{ github.event.pull_request.number }},$PR_NUMBER=${{ github.event.pull_request.number }}'
+
+      - name: Copy integration test config file
+        run: cp 01-network/Pulumi.integration.yaml 01-network/Pulumi.integration-${{ github.event.pull_request.number }}.yaml
+
+      - name: run integration tests
+        run: npm run integration
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          DEV_AURORA_USERNAME: ${{ secrets.DEV_AURORA_USERNAME }}
+          DEV_AURORA_PASSWORD: ${{ secrets.DEV_AURORA_PASSWORD }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+
+  preview:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies from NPM
+        run: npm install
+
+      - name: Install Pulumi CLI
+        uses: pulumi/setup-pulumi@v2
+
+      - name: List pulumi plugin
+        run: pulumi plugin ls
+
+      - name: Install pulumi plugin EKS
+        run: pulumi plugin install resource eks 0.30.0
+
+      - name: Install pulumi plugin AWS
+        run: pulumi plugin install resource aws v4.8.0
+
+      - name: List pulumi plugin
+        run: pulumi plugin ls
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: ap-southeast-1
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Preview network
+        uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: med4all/network
+          work-dir: 01-network
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Preview EKS
+        uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: med4all/eks
+          work-dir: 02-eks
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Preview NLB
+        uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: med4all/nlb
+          work-dir: 03-nlb
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Preview NLB local
+        uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: med4all/nlb-local
+          work-dir: 03-nlb
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Preview Route53
+        uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: med4all/route53
+          work-dir: 04-route53
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Preview MSK
+        uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: med4all/msk
+          work-dir: 06-msk
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Preview Elasticsearch
+        uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: med4all/elasticsearch
+          work-dir: 07-elasticsearch
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Preview RDS
+        uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: med4all/rds
+          work-dir: 08-rds
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Preview s3
+        uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: med4all/s3
+          work-dir: 10-s3
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Preview Private Host Zone
+        uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: med4all/privateHostZone
+          work-dir: 11-privateHostZone
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+  preview-api-gateway:
+    needs: [lint-and-compiler-check, unit-test, preview]
+    runs-on: ubuntu-20.04
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies from NPM
+        run: npm install
+
+      - name: Install Pulumi CLI
+        uses: pulumi/action-install-pulumi-cli@v1
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: ap-southeast-1
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Preview API gateway
+        uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: med4all/apigateway
+          work-dir: 05-apigateway
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Preview ArgoCD
+        uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: med4all/argocd
+          work-dir: 09-argocd
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
