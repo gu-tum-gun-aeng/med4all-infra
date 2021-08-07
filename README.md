@@ -3,7 +3,7 @@
 
 Declaration of med4all's infrastructure on AWS
 
-# Installation
+## Installation
 
 install package
 
@@ -17,7 +17,7 @@ setup husky for git hook `pre-commit` and `pre-push`
 npm run prepare
 ```
 
-# Tests
+## Tests
 
 run unit tests
 
@@ -31,7 +31,7 @@ run integration tests
 npm run integration
 ```
 
-# Linting
+## Linting
 
 run lint
 
@@ -45,7 +45,7 @@ fix lint automatically
 npm run lint-fix
 ```
 
-## integrating Eslint with your code editor
+## Integrating Eslint with your code editor
 
 ### VS Code
 
