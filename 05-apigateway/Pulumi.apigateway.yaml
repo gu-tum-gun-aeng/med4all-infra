@@ -3,10 +3,10 @@ config:
     networkStackReference: med4all/med4all-infrastructure/network
     eksStackReference: med4all/med4all-infrastructure/eks
     customDomainName:
-      - api.gu-aeng.ninja
+      - api.med4all.care
     certificate:
       type: AMAZON_ISSUED
-    route53ZoneName: gu-aeng.ninja
+    route53ZoneName: med4all.care
     awsSdkResourceGroupsTaggingApi:
       apiVersion: '2017-01-26'
       resourceTypeFilters: elasticloadbalancing:loadbalancer
