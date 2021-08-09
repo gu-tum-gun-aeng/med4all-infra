@@ -1,4 +1,4 @@
-import { Config } from '../../06-msk/config'
+import { Config } from '../../07-msk/config'
 
 export const mockConfig: Config = {
   clusterName: 'mock-cluster',

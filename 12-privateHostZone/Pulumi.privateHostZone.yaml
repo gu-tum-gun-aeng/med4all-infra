@@ -10,8 +10,8 @@ config:
     route53ZoneName: med4all.care
     route53RecordTtl: 300
     route53RecordType: CNAME
-    awsSdkResourceGroupsTaggingApi: 
-      apiVersion: "2017-01-26"
+    awsSdkResourceGroupsTaggingApi:
+      apiVersion: '2017-01-26'
       resourceTypeFilters: elasticloadbalancing:loadbalancer
     privateHostZoneName: med4all.local
   aws:region: ap-southeast-1

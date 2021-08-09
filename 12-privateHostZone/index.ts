@@ -1,7 +1,7 @@
 import * as pulumi from '@pulumi/pulumi'
 import Config from './config'
 import { Network } from '../types/network'
-import { ElasticsearchDomain } from '../07-elasticsearch/elasticsearch'
+import { ElasticsearchDomain } from '../08-elasticsearch/elasticsearch'
 import privateHostZone from './privateHostZone'
 
 const clusterStackRef = new pulumi.StackReference(Config.stackReference)

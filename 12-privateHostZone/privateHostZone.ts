@@ -1,8 +1,8 @@
 import * as aws from '@pulumi/aws'
 import * as pulumi from '@pulumi/pulumi'
 import Config from './config'
-import { getArnNlb } from '../05-apigateway/apigateway'
-import { ElasticsearchDomain } from '../07-elasticsearch/elasticsearch'
+import { getArnNlb } from '../06-apigateway/apigateway'
+import { ElasticsearchDomain } from '../08-elasticsearch/elasticsearch'
 import * as awsSdk from 'aws-sdk'
 import { Network } from '../types/network'
 

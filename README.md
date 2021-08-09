@@ -1,4 +1,5 @@
 # med4all-infrastructure
+
 [![on-push-main](https://github.com/gu-tum-gun-aeng/med4all-infra/actions/workflows/on-push-main.yaml/badge.svg)](https://github.com/gu-tum-gun-aeng/med4all-infra/actions/workflows/on-push-main.yaml)
 
 Declaration of med4all's infrastructure on AWS

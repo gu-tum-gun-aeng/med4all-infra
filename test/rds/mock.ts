@@ -1,4 +1,4 @@
-import { Config } from '../../08-rds/config'
+import { Config } from '../../09-rds/config'
 
 export const mockConfig: Config = {
   rds: {
