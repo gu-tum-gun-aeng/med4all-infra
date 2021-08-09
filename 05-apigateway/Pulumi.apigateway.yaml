@@ -1,7 +1,7 @@
 config:
-  med4all-aws-infrastructure:config:
-    networkStackReference: med4all/med4all-aws-infrastructure/network
-    eksStackReference: med4all/med4all-aws-infrastructure/eks
+  med4all-infrastructure:config:
+    networkStackReference: med4all/med4all-infrastructure/network
+    eksStackReference: med4all/med4all-infrastructure/eks
     customDomainName:
       - api.gu-aeng.ninja
     certificate:

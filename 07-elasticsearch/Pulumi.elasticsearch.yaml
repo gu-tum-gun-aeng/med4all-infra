@@ -1,5 +1,5 @@
 config:
-  med4all-aws-infrastructure:config:
+  med4all-infrastructure:config:
     elasticsearch:
       instanceType: t3.small.elasticsearch
       name: elasticsearch
@@ -7,6 +7,6 @@ config:
       route53RecordType: CNAME
       route53RecordName: kibana
       route53Ttl: 300
-    stackReference: med4all/med4all-aws-infrastructure/network
-    stackReferenceRoute53: 'med4all/med4all-aws-infrastructure/route53'
+    stackReference: med4all/med4all-infrastructure/network
+    stackReferenceRoute53: 'med4all/med4all-infrastructure/route53'
   aws:region: ap-southeast-1

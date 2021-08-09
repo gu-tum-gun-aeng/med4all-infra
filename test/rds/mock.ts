@@ -12,5 +12,5 @@ export const mockConfig: Config = {
     subnetGroupName: 'rds-private-subnet',
     instanceType: 'db.t2.micro',
   },
-  stackReference: 'med4all/med4all-aws-infrastructure/dev',
+  stackReference: 'med4all/med4all-infrastructure/dev',
 }

@@ -1,8 +1,8 @@
 config:
-  med4all-aws-infrastructure:config:
-    stackReference: med4all/med4all-aws-infrastructure/network
-    eksStackReference: med4all/med4all-aws-infrastructure/eks
-    esStackReference: med4all/med4all-aws-infrastructure/elasticsearch
+  med4all-infrastructure:config:
+    stackReference: med4all/med4all-infrastructure/network
+    eksStackReference: med4all/med4all-infrastructure/eks
+    esStackReference: med4all/med4all-infrastructure/elasticsearch
     dashboardDomainNames:
       - argocd
       - grafana

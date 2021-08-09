@@ -1,5 +1,5 @@
 config:
-  med4all-aws-infrastructure:config:
+  med4all-infrastructure:config:
     customDomainName:
       - api.gu-aeng.ninja
     route53ZoneName: gu-aeng.ninja

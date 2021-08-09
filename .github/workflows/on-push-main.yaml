@@ -60,7 +60,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: up
-          stack-name: med4all/network
+          stack-name: med4all/med4all-infrastructure/network
           refresh: true
           work-dir: 01-network
         env:
@@ -80,7 +80,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: up
-          stack-name: med4all/nlb
+          stack-name: med4all/med4all-infrastructure/nlb
           work-dir: 03-nlb
           refresh: true
         env:
