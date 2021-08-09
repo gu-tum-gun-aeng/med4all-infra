@@ -6,7 +6,11 @@ export PULUMI_ORG_NAME=med4all
 
 pulumi stack init $PULUMI_ORG_NAME/network
 pulumi stack init $PULUMI_ORG_NAME/eks
+
+# Both stack are in 03-nlb 
 pulumi stack init $PULUMI_ORG_NAME/nlb
+pulumi stack init $PULUMI_ORG_NAME/nlb-local
+
 pulumi stack init $PULUMI_ORG_NAME/route53
 pulumi stack init $PULUMI_ORG_NAME/apigateway
 pulumi stack init $PULUMI_ORG_NAME/msk
