@@ -1,5 +1,5 @@
 import * as pulumi from '@pulumi/pulumi'
-import Rds from '../../08-rds/rds'
+import Rds from '../../09-rds/rds'
 import Network from '../../01-network/network'
 import { mockConfig as rdsMockConfig } from './mock'
 import { mockConfig as networkMockConfig } from '../network/mock'

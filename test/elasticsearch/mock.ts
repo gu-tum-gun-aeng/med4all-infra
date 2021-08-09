@@ -1,4 +1,4 @@
-import { Config } from '../../07-elasticsearch/config'
+import { Config } from '../../08-elasticsearch/config'
 
 export const mockConfig: Config = {
   stackReference: 'ref',

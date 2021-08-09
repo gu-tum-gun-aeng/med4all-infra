@@ -1,5 +1,5 @@
 config:
-  med4all-aws-infrastructure:config:
+  med4all-infrastructure:config:
     eks:
       roleName: med4all-eks-role
       profileName: med4all-eks-profile
@@ -20,5 +20,5 @@ config:
       minSize: 3
       maxSize: 5
       cloudWathcRoleName: med4all-local-FluentDCloudWatchForEks
-    stackReference: med4all/med4all-aws-infrastructure/network
+    stackReference: med4all/med4all-infrastructure/network
   aws:region: ap-southeast-1

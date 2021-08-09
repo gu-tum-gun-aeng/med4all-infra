@@ -26,7 +26,7 @@ jobs:
       - name: Replace configuration for rds
         uses: datamonsters/replace-action@v2
         with:
-          files: '08-rds/Pulumi.rds.yaml'
+          files: '09-rds/Pulumi.rds.yaml'
           replacements: '$DEV_AURORA_USERNAME=${{ secrets.DEV_AURORA_USERNAME }},$DEV_AURORA_PASSWORD=${{ secrets.DEV_AURORA_PASSWORD }}'
 
       - name: Install Pulumi CLI
@@ -91,7 +91,7 @@ jobs:
         with:
           command: up
           stack-name: med4all/nlb-local
-          work-dir: 03-nlb
+          work-dir: 04-nlb-local
           refresh: true
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -101,7 +101,7 @@ jobs:
         with:
           command: up
           stack-name: med4all/route53
-          work-dir: 04-route53
+          work-dir: 05-route53
           refresh: true
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -111,7 +111,7 @@ jobs:
         with:
           command: up
           stack-name: med4all/apigateway
-          work-dir: 05-apigateway
+          work-dir: 06-apigateway
           refresh: true
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -121,7 +121,7 @@ jobs:
         with:
           command: up
           stack-name: med4all/msk
-          work-dir: 06-msk
+          work-dir: 07-msk
           refresh: true
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -131,7 +131,7 @@ jobs:
         with:
           command: up
           stack-name: med4all/elasticsearch
-          work-dir: 07-elasticsearch
+          work-dir: 08-elasticsearch
           refresh: true
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -141,7 +141,7 @@ jobs:
         with:
           command: up
           stack-name: med4all/rds
-          work-dir: 08-rds
+          work-dir: 09-rds
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
@@ -150,7 +150,7 @@ jobs:
         with:
           command: up
           stack-name: med4all/s3
-          work-dir: 10-s3
+          work-dir: 11-s3
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
@@ -159,6 +159,6 @@ jobs:
         with:
           command: up
           stack-name: med4all/privateHostZone
-          work-dir: 11-privateHostZone
+          work-dir: 12-privateHostZone
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}

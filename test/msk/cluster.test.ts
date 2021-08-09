@@ -1,7 +1,7 @@
 import * as pulumi from '@pulumi/pulumi'
 import { pulumiSetMock } from '../pulumi'
 import { mockConfig, mockNetwork } from './mock'
-import MskCluster from '../../06-msk/cluster'
+import MskCluster from '../../07-msk/cluster'
 
 pulumiSetMock()
 

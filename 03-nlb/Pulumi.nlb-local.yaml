@@ -1,7 +1,0 @@
-config:
-  med4all-aws-infrastructure:config:
-    name: med4all-nlb-local
-    kubeConfigName: localKubeconfig
-    eksStackReference: med4all/med4all-aws-infrastructure/eks
-    ingressDeploymentFilename: ingress-deploy.yaml
-  aws:region: ap-southeast-1

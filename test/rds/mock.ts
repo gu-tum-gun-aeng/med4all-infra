@@ -1,4 +1,4 @@
-import { Config } from '../../08-rds/config'
+import { Config } from '../../09-rds/config'
 
 export const mockConfig: Config = {
   rds: {
@@ -12,5 +12,5 @@ export const mockConfig: Config = {
     subnetGroupName: 'rds-private-subnet',
     instanceType: 'db.t2.micro',
   },
-  stackReference: 'med4all/med4all-aws-infrastructure/dev',
+  stackReference: 'med4all/med4all-infrastructure/dev',
 }

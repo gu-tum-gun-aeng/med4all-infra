@@ -1,6 +1,6 @@
 import * as pulumi from '@pulumi/pulumi'
 
-import ElasticsearchDomain from '../../07-elasticsearch/elasticsearch'
+import ElasticsearchDomain from '../../08-elasticsearch/elasticsearch'
 import { pulumiSetMock } from '../pulumi'
 import { mockConfig, mockNetwork } from './mock'
 

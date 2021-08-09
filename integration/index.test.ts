@@ -9,6 +9,7 @@ afterAll(async () => {
   await automation.removeStack()
 })
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 describe("Resource's shape", () => {
   it('should get 1 vpc, 4 subnets', async () => {
     try {

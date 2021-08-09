@@ -167,7 +167,7 @@ jobs:
         with:
           command: preview
           stack-name: med4all/route53
-          work-dir: 04-route53
+          work-dir: 05-route53
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
@@ -176,7 +176,7 @@ jobs:
         with:
           command: preview
           stack-name: med4all/msk
-          work-dir: 06-msk
+          work-dir: 07-msk
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
@@ -185,7 +185,7 @@ jobs:
         with:
           command: preview
           stack-name: med4all/elasticsearch
-          work-dir: 07-elasticsearch
+          work-dir: 08-elasticsearch
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
@@ -194,7 +194,7 @@ jobs:
         with:
           command: preview
           stack-name: med4all/rds
-          work-dir: 08-rds
+          work-dir: 09-rds
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
@@ -203,7 +203,7 @@ jobs:
         with:
           command: preview
           stack-name: med4all/s3
-          work-dir: 10-s3
+          work-dir: 11-s3
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
@@ -212,7 +212,7 @@ jobs:
         with:
           command: preview
           stack-name: med4all/privateHostZone
-          work-dir: 11-privateHostZone
+          work-dir: 12-privateHostZone
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
@@ -249,7 +249,7 @@ jobs:
         with:
           command: preview
           stack-name: med4all/apigateway
-          work-dir: 05-apigateway
+          work-dir: 06-apigateway
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
