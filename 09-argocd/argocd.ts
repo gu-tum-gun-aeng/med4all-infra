@@ -23,6 +23,7 @@ const createNamespace = (provider: k8s.Provider): k8s.core.v1.Namespace => {
   )
 }
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 const argoTransformationForMetatdataName = (
   config: any,
   nameSpace: k8s.core.v1.Namespace

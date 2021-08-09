@@ -30,6 +30,7 @@ export const create = (
   }
 }
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 export interface Eks {
   eksCluster: eks.Cluster
   spotNodeGroup: eks.NodeGroup
