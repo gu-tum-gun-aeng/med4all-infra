@@ -89,7 +89,7 @@ const createVpcLink = (
 
 export const getArnNlb = async (
   clusterIdTag: string
-): Promise<pulumi.Output<string>> => {
+): Promise<pulumi.Output<string | undefined>> => {
   const nlbArn = await pulumi
     .output(aws.getRegion())
     .name.apply(async (regionName) => {
