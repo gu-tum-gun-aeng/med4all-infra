@@ -1,5 +1,5 @@
 config:
   med4all-infrastructure:config:
-    bucketName: med4all-bucket
+    bucketName: med4all-s3-bucket
     acl: private
   aws:region: ap-southeast-1
