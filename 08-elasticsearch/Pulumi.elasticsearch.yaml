@@ -1,7 +1,7 @@
 config:
   med4all-infrastructure:config:
     elasticsearch:
-      instanceType: t3.small.elasticsearch
+      instanceType: m6g.xlarge.elasticsearch
       name: elasticsearch
       route53RecordPulumiName: med4all-elasticsearchRoute53
       route53RecordType: CNAME

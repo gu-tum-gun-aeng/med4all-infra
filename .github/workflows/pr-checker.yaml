@@ -158,7 +158,7 @@ jobs:
         with:
           command: preview
           stack-name: med4all/nlb-local
-          work-dir: 03-nlb
+          work-dir: 04-nlb-local
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
@@ -258,6 +258,6 @@ jobs:
         with:
           command: preview
           stack-name: med4all/argocd
-          work-dir: 09-argocd
+          work-dir: 10-argocd
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
