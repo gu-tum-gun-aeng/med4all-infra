@@ -2,7 +2,7 @@ config:
   med4all-infrastructure:config:
     securityGroupName: med4all-msk-cluster-security-group
     clusterName: med4all-msk-cluster
-    brokerInstanceType: kafka.t3.small
+    brokerInstanceType: kafka.m5.xlarge
     brokerNumberNode: 3
     kafkaVersion: '2.8.0'
     brokerEbsVolumeSize: 20
