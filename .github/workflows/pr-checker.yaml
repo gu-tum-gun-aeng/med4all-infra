@@ -237,6 +237,9 @@ jobs:
       - name: Install Pulumi CLI
         uses: pulumi/action-install-pulumi-cli@v1
 
+      - name: Install pulumi plugin K8s
+        run: pulumi plugin install resource kubernetes v3.4.0
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
