@@ -1,0 +1,40 @@
+config:
+  med4all-infrastructure:config:
+    networkStackReference: med4all/med4all-infrastructure/network-dev
+    eksStackReference: med4all/med4all-infrastructure/eks-dev
+    customDomainName:
+      - dev.api.med4all.care
+    certificate:
+      type: AMAZON_ISSUED
+    route53ZoneName: med4all.care
+    awsSdkResourceGroupsTaggingApi:
+      apiVersion: '2017-01-26'
+      resourceTypeFilters: elasticloadbalancing:loadbalancer
+    vpcLink:
+      name: med4allVpcLink-dev
+      description: VpcLink for API gateway for dev
+    apiGateway:
+      name: httpApiGateway-dev
+      description: API Gateway for med4all core for dev
+      endpointConfigurationType: REGIONAL
+    stage:
+      name: httpApiStage-dev
+      stageName: api
+    integration:
+      name: httpApi-integration-dev
+      type: HTTP_PROXY
+      integrationHttpMethod: ANY
+      connectionType: VPC_LINK
+    route:
+      name: httpApi-route-dev
+    apiGatewayDomainName:
+      name: httpApiDomainName-dev
+      endpointConfigurationType: REGIONAL
+      securityPolicy: TLS_1_2
+    route53Record:
+      name: httpApi-proxyRecord-dev
+      type: CNAME
+      ttl: 300
+    basePathMapping:
+      name: httpApi-wildcardPathmap-dev
+  aws:region: ap-southeast-1

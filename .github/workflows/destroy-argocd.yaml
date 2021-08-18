@@ -23,7 +23,7 @@ jobs:
       - uses: pulumi/actions@v3
         with:
           command: destroy
-          stack-name: med4all/argocd
+          stack-name: med4all/argocd-dev
           work-dir: 10-argocd
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}

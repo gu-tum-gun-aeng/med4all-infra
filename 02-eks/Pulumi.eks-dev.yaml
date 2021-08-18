@@ -1,0 +1,24 @@
+config:
+  med4all-infrastructure:config:
+    eks:
+      roleName: med4all-eks-role-dev
+      profileName: med4all-eks-profile-dev
+      clusterId: med4all-eks-cluster-dev
+      nodeGroupId: med4all-eks-node-group-dev
+      instanceType: t2.medium
+      desireCapacity: 3
+      minSize: 3
+      maxSize: 5
+      cloudWathcRoleName: med4all-FluentDCloudWatchForEks-dev
+    localEks:
+      roleName: med4all-local-eks-role-dev
+      profileName: med4all-local-eks-profile-dev
+      clusterId: med4all-local-eks-cluster-dev
+      nodeGroupId: med4all-local-eks-node-group-dev
+      instanceType: t2.medium
+      desireCapacity: 3
+      minSize: 3
+      maxSize: 5
+      cloudWathcRoleName: med4all-local-FluentDCloudWatchForEks-dev
+    stackReference: med4all/med4all-infrastructure/network-dev
+  aws:region: ap-southeast-1

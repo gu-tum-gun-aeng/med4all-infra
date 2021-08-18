@@ -1,0 +1,12 @@
+config:
+  med4all-infrastructure:config:
+    elasticsearch:
+      instanceType: m6g.xlarge.elasticsearch
+      name: elasticsearch-dev
+      route53RecordPulumiName: med4all-elasticsearchRoute53-dev
+      route53RecordType: CNAME
+      route53RecordName: dev.kibana
+      route53Ttl: 300
+    stackReference: med4all/med4all-infrastructure/network-dev
+    stackReferenceRoute53: med4all/med4all-infrastructure/route53-dev
+  aws:region: ap-southeast-1
