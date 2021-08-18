@@ -1,0 +1,14 @@
+config:
+  med4all-infrastructure:config:
+    rds:
+      dbName: med4all
+      username: $DEV_AURORA_USERNAME
+      password: $DEV_AURORA_PASSWORD
+      nCluster: 2
+      clusterId: med4all-aurora-cluster-dev
+      clusterInstanceId: med4all-aurora-instance-dev
+      skipFinalSnapshot: false
+      subnetGroupName: med4all-rds-private-subnet-dev
+      instanceType: db.r6g.2xlarge
+    stackReference: med4all/med4all-infrastructure/network-dev
+  aws:region: ap-southeast-1

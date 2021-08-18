@@ -1,0 +1,10 @@
+config:
+  med4all-infrastructure:config:
+    securityGroupName: med4all-msk-cluster-security-group-dev
+    clusterName: med4all-msk-cluster-dev
+    brokerInstanceType: kafka.m5.xlarge
+    brokerNumberNode: 3
+    kafkaVersion: '2.8.0'
+    brokerEbsVolumeSize: 20
+    stackReference: med4all/med4all-infrastructure/network-dev
+  aws:region: ap-southeast-1

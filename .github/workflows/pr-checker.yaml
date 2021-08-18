@@ -130,7 +130,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: med4all/network
+          stack-name: med4all/network-dev
           work-dir: 01-network
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -139,7 +139,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: med4all/eks
+          stack-name: med4all/eks-dev
           work-dir: 02-eks
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -148,7 +148,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: med4all/nlb
+          stack-name: med4all/nlb-dev
           work-dir: 03-nlb
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -157,7 +157,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: med4all/nlb-local
+          stack-name: med4all/nlb-local-dev
           work-dir: 04-nlb-local
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -166,7 +166,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: med4all/route53
+          stack-name: med4all/route53-dev
           work-dir: 05-route53
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -175,7 +175,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: med4all/msk
+          stack-name: med4all/msk-dev
           work-dir: 07-msk
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -184,7 +184,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: med4all/elasticsearch
+          stack-name: med4all/elasticsearch-dev
           work-dir: 08-elasticsearch
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -193,7 +193,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: med4all/rds
+          stack-name: med4all/rds-dev
           work-dir: 09-rds
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -202,7 +202,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: med4all/s3
+          stack-name: med4all/s3-dev
           work-dir: 11-s3
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -211,7 +211,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: med4all/privateHostZone
+          stack-name: med4all/privateHostZone-dev
           work-dir: 12-privateHostZone
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -248,7 +248,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: med4all/apigateway
+          stack-name: med4all/apigateway-dev
           work-dir: 06-apigateway
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -257,7 +257,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: preview
-          stack-name: med4all/argocd
+          stack-name: med4all/argocd-dev
           work-dir: 10-argocd
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
