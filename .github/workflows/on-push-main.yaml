@@ -26,7 +26,7 @@ jobs:
       - name: Replace configuration for rds
         uses: datamonsters/replace-action@v2
         with:
-          files: '09-rds/Pulumi.rds.yaml'
+          files: '09-rds/Pulumi.rds-dev.yaml'
           replacements: '$DEV_AURORA_USERNAME=${{ secrets.DEV_AURORA_USERNAME }},$DEV_AURORA_PASSWORD=${{ secrets.DEV_AURORA_PASSWORD }}'
 
       - name: Install Pulumi CLI
@@ -135,8 +135,6 @@ jobs:
           refresh: true
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-          DEV_AURORA_PASSWORD: ${{ secrets.DEV_AURORA_PASSWORD }}
-          DEV_AURORA_USERNAME: ${{ secrets.DEV_AURORA_USERNAME }}
 
       - name: Up RDS
         uses: pulumi/actions@v3
