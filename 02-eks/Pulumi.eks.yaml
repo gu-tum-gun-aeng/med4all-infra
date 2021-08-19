@@ -5,7 +5,7 @@ config:
       profileName: med4all-eks-profile
       clusterId: med4all-eks-cluster
       nodeGroupId: med4all-eks-node-group
-      instanceType: t4g.xlarge
+      instanceType: t3a.xlarge
       desireCapacity: 3
       minSize: 3
       maxSize: 5
