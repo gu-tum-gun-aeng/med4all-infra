@@ -76,7 +76,7 @@ jobs:
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
-      - name: Up EKS
+      - name: Up EKS dev
         uses: pulumi/actions@v3
         with:
           command: up
@@ -86,7 +86,17 @@ jobs:
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
-      - name: Up NLB
+      - name: Up EKS prod
+        uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: med4all/eks
+          refresh: true
+          work-dir: 02-eks
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Up NLB dev
         uses: pulumi/actions@v3
         with:
           command: up
@@ -95,8 +105,18 @@ jobs:
           refresh: true
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+      
+      - name: Up NLB prod
+        uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: med4all/nlb
+          work-dir: 03-nlb
+          refresh: true
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
-      - name: Up NLB local
+      - name: Up NLB local dev
         uses: pulumi/actions@v3
         with:
           command: up
@@ -106,7 +126,17 @@ jobs:
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
-      - name: Up Route53
+      - name: Up NLB local prod
+        uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: med4all/nlb-local
+          work-dir: 04-nlb-local
+          refresh: true
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Up Route53 dev
         uses: pulumi/actions@v3
         with:
           command: up
@@ -116,7 +146,17 @@ jobs:
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
-      - name: Up API Gateway
+      - name: Up Route53 prod
+        uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: med4all/route53
+          work-dir: 05-route53
+          refresh: true
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Up API Gateway dev
         uses: pulumi/actions@v3
         with:
           command: up
@@ -126,7 +166,17 @@ jobs:
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
-      - name: Up MSK
+      - name: Up API Gateway prod
+        uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: med4all/apigateway
+          work-dir: 06-apigateway
+          refresh: true
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Up MSK dev
         uses: pulumi/actions@v3
         with:
           command: up
@@ -136,7 +186,17 @@ jobs:
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
-      - name: Up Elasticsearch
+      - name: Up MSK prod
+        uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: med4all/msk
+          work-dir: 07-msk
+          refresh: true
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Up Elasticsearch dev
         uses: pulumi/actions@v3
         with:
           command: up
@@ -146,11 +206,30 @@ jobs:
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
-      - name: Up RDS
+      - name: Up Elasticsearch prod
+        uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: med4all/elasticsearch
+          work-dir: 08-elasticsearch
+          refresh: true
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Up RDS dev
         uses: pulumi/actions@v3
         with:
           command: up
           stack-name: med4all/rds-dev
+          work-dir: 09-rds
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Up RDS prod
+        uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: med4all/rds
           work-dir: 09-rds
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -164,11 +243,29 @@ jobs:
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
-      - name: Up Private Host Zone
+      - name: Up s3 prod
+        uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: med4all/s3
+          work-dir: 11-s3
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Up Private Host Zone dev
         uses: pulumi/actions@v3
         with:
           command: up
           stack-name: med4all/privateHostZone-dev
+          work-dir: 12-privateHostZone
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Up Private Host Zone prod
+        uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: med4all/privateHostZone
           work-dir: 12-privateHostZone
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
