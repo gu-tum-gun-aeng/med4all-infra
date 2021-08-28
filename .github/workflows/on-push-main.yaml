@@ -56,11 +56,21 @@ jobs:
       - name: run test
         run: npm run test
 
-      - name: Up network
+      - name: Up network dev
         uses: pulumi/actions@v3
         with:
           command: up
           stack-name: med4all/network-dev
+          refresh: true
+          work-dir: 01-network
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Up network prod
+        uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: med4all/network
           refresh: true
           work-dir: 01-network
         env:
