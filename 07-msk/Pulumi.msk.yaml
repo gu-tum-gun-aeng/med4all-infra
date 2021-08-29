@@ -7,4 +7,5 @@ config:
     kafkaVersion: '2.8.0'
     brokerEbsVolumeSize: 200
     stackReference: med4all/med4all-infrastructure/network
+    clusterConfigName: med4all-msk-cluster-config
   aws:region: ap-southeast-1

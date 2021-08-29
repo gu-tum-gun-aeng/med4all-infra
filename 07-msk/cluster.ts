@@ -1,10 +1,12 @@
 import * as aws from '@pulumi/aws'
 import { Network } from '../types/network'
 import { Config } from './config'
+import { ClusterConfig } from './cluster-config'
 
 const create = (
   config: Config,
-  network: Network
+  network: Network,
+  clusterConfig: ClusterConfig
 ): {
   cluster: aws.msk.Cluster
   clusterSecurityGroup: aws.ec2.SecurityGroup
@@ -24,6 +26,10 @@ const create = (
     },
     tags: {
       Name: config.clusterName,
+    },
+    configurationInfo: {
+      arn: clusterConfig.clusterConfig.arn,
+      revision: clusterConfig.clusterConfig.latestRevision,
     },
   })
 

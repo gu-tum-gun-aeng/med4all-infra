@@ -8,6 +8,7 @@ export interface Config {
   brokerEbsVolumeSize: number
   kafkaVersion: string
   securityGroupName: string
+  clusterConfigName: string
 }
 
 const pulumiConfig = new pulumi.Config()
