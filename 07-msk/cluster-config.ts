@@ -6,7 +6,7 @@ export interface ClusterConfig {
   clusterConfig: Configuration
 }
 
-const create = (config: Config) => {
+const create = (config: Config): ClusterConfig => {
   const clusterConfig = new aws.msk.Configuration(config.clusterConfigName, {
     kafkaVersions: [config.kafkaVersion],
     serverProperties: `

@@ -1,6 +1,5 @@
 import * as pulumi from '@pulumi/pulumi'
 import { Config } from '../../07-msk/config'
-import { ClusterConfig } from '../../07-msk/cluster-config'
 
 export const mockConfig: Config = {
   clusterName: 'mock-cluster',
@@ -25,9 +24,8 @@ export const mockNetwork: any = {
   },
 }
 
-const mockGetprovider = (test: string) => undefined
-
-export const mockClusterConfig: ClusterConfig = {
+// eslint-disable-next-line
+export const mockClusterConfig: any = {
   clusterConfig: {
     arn: pulumi.output('test'),
     kafkaVersions: pulumi.output(['2.8.0']),
@@ -37,6 +35,5 @@ export const mockClusterConfig: ClusterConfig = {
     id: pulumi.output('test'),
     name: pulumi.output('test'),
     urn: pulumi.output('test'),
-    getProvider: mockGetprovider,
   },
 }
