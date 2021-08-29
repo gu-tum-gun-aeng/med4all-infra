@@ -1,6 +1,6 @@
 import * as pulumi from '@pulumi/pulumi'
 import { pulumiSetMock } from '../pulumi'
-import { mockConfig, mockNetwork } from './mock'
+import { mockConfig, mockNetwork, mockClusterConfig } from './mock'
 import MskCluster from '../../07-msk/cluster'
 
 pulumiSetMock()
@@ -9,7 +9,7 @@ describe('MSK Cluster', () => {
   const {
     cluster: createdMskCluster,
     clusterSecurityGroup: createdClusterSecurityGroup,
-  } = MskCluster.create(mockConfig, mockNetwork)
+  } = MskCluster.create(mockConfig, mockNetwork, mockClusterConfig)
 
   test('should have a name tag that name mock-cluster', (done) => {
     pulumi
