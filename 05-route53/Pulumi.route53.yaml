@@ -2,6 +2,7 @@ config:
   med4all-infrastructure:config:
     customDomainName:
       - api.med4all.care
+      - med4all.care
     route53ZoneName: med4all.care
     certification:
       name: sslCertificate
