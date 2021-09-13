@@ -4,7 +4,7 @@ config:
     eksStackReference: med4all/med4all-infrastructure/eks-dev
     customDomainName:
       - dev.api.med4all.care
-      - dev.med4all.care
+      - dev.app.med4all.care
     certificate:
       type: AMAZON_ISSUED
     route53ZoneName: med4all.care
