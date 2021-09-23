@@ -9,6 +9,6 @@ config:
       clusterInstanceId: med4all-aurora-instance-dev
       skipFinalSnapshot: false
       subnetGroupName: med4all-rds-private-subnet-dev
-      instanceType: db.r6g.2xlarge
+      instanceType: db.r6g.large
     stackReference: med4all/med4all-infrastructure/network-dev
   aws:region: ap-southeast-1
